@@ -1,3 +1,9 @@
-const FunctionalGreeting = () => <h1>Hello</h1>;
-
+const FunctionalGreeting = (props) => {
+	console.log(props);
+	return (
+		<h1>
+			Hello {props.name}, {props.greeting} You are {props.age} years old
+		</h1>
+	);
+};
 export default FunctionalGreeting;
