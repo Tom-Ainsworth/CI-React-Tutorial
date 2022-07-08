@@ -1,10 +1,9 @@
-import logo from "./logo.svg";
 import "./App.css";
-import StatefulGreetingWithPrevState from "./components/StatefulGreetingWithPrevState";
+import MethodsAsPropsParent from "./components/MethodsAsPropsParent";
 function App() {
 	return (
 		<div className="App">
-			<StatefulGreetingWithPrevState greeting="Nice to meet you!" name="Tom" age="28" />
+			<MethodsAsPropsParent />
 		</div>
 	);
 }
