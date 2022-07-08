@@ -11,57 +11,29 @@ export class ControlledForm extends Component {
 		};
 	}
 
-	handleNameChange = (e) => {
-		this.setState(
-			{
-				name: e.target.value,
-			},
-			() => {
-				console.log(this.state.name);
-			}
-		);
+	handleChange = (e) => {
+		const { name, value } = e.target;
+		this.setState({
+			[name]: value,
+		});
 	};
 
-	handleCategoryChange = (e) => {
-		this.setState(
-			{
-				category: e.target.value,
-			},
-			() => {
-				console.log(this.state.category);
-			}
-		);
+	handleSubmit = (e) => {
+		e.preventDefault();
 	};
-
-	handleCommentChange = (e) => {
-		this.setState(
-			{
-				comment: e.target.value,
-			},
-			() => {
-				console.log(this.state.comment);
-			}
-		);
-	};
-
 	render() {
 		return (
 			<div>
 				<h2>Please fill the form in</h2>
-				<form>
+				<form onSubmit={this.handleSubmit}>
 					<div>
 						<label htmlFor="id-name">Your Name:</label>
-						<input
-							id="id-name"
-							name="name"
-							type="text"
-							value={this.state.name}
-							onChange={this.handleNameChange}></input>
+						<input id="id-name" name="name" type="text" value={this.state.name} onChange={this.handleChange}></input>
 					</div>
 					<div>
 						<label htmlFor="id-category">Query category:</label>
 
-						<select id="id-category" name="category" onChange={this.handleCategoryChange}>
+						<select id="id-category" name="category" onChange={this.handleChange}>
 							<option value="website">Website issue</option>
 							<option value="order">Order issue</option>
 							<option value="general">General issue</option>
@@ -69,7 +41,7 @@ export class ControlledForm extends Component {
 					</div>
 					<div>
 						<label htmlFor="id--comments">Comments:</label>
-						<textarea id="id--comments" name="comments" onChange={this.handleCommentChange} />
+						<textarea id="id--comments" name="comments" onChange={this.handleChange} />
 					</div>
 					<input type="submit" value="Submit"></input>
 				</form>
