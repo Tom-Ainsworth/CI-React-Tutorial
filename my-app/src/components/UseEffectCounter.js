@@ -14,10 +14,6 @@ function UseEffectCounter() {
 		const interval = setInterval(() => {
 			setTime((time) => time + 1);
 		}, 1000);
-		return () => {
-			console.log("Cleaned up!");
-			clearInterval(interval);
-		};
 	}, []);
 
 	return (
