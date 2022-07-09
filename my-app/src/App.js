@@ -1,13 +1,10 @@
 import "./App.css";
-import ClassCounter from "./components/ClassCounter";
-import ControlledFormHooks from "./components/ControlledFormHooks";
-import HooksCounter from "./components/HooksCounter";
-import UncontrolledForm from "./components/UncontrolledForm";
+import UseStateWithArrays from "./components/UseStateWithArrays";
 
 function App() {
 	return (
 		<div className="App">
-			<ControlledFormHooks />
+			<UseStateWithArrays />
 		</div>
 	);
 }
