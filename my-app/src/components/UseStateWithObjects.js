@@ -11,8 +11,8 @@ function UseStateWithObjects() {
 					value={name.firstName}
 					onChange={(e) =>
 						setName({
+							...name,
 							firstName: e.target.value,
-							lastName: name.lastName,
 						})
 					}
 				/>
@@ -21,7 +21,7 @@ function UseStateWithObjects() {
 					value={name.lastName}
 					onChange={(e) =>
 						setName({
-							firstName: name.firstName,
+							...name,
 							lastName: e.target.value,
 						})
 					}
