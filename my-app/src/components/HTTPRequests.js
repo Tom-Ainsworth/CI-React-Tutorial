@@ -7,14 +7,22 @@ export class HTTPRequests extends Component {
 
 		this.state = {
 			posts: [],
+			error: null,
 		};
 	}
 
 	componentDidMount() {
-		axios.get("https://jsonplaceholder.typicode.com/posts/1").then((response) => {
-			console.log(response);
-			this.setState({ posts: Array.isArray(response) ? response.data : [response.data] });
-		});
+		axios
+			.get("https://jsonplaceholder.typicode.com/posts")
+			.then((response) => {
+				console.log(response);
+				this.setState({ posts: Array.isArray(response.data) ? response.data : [response.data] });
+			})
+			.catch((error) => {
+				this.setState({
+					error: error.message,
+				});
+			});
 	}
 
 	render() {
@@ -33,6 +41,8 @@ export class HTTPRequests extends Component {
 							<hr />
 						</div>
 					))
+				) : this.state.error ? (
+					<p>{this.state.error}</p>
 				) : (
 					<h4>Loading posts ...</h4>
 				)}
